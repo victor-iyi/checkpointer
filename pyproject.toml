@@ -1,0 +1,70 @@
+[project]
+name = "checkpointer"
+version = "0.1.0"
+description = "Custom checkpointer for persistent state management in Agentic workflows"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+authors = [
+  { name = "Victor I. Afolabi", email = "javafolabi@gmail.com" }
+]
+requires-python = ">=3.14"
+keywords = ["checkpointer", "langchain", "langgraph", "state-management"]
+
+dependencies = [
+  "langchain>=1.2.0",
+  "langgraph>=1.0.5",
+  "pydantic-settings>=2.12.0",
+]
+
+[dependency-groups]
+dev = [
+  "mypy>=1.19.1",
+  "pylint>=4.0.4",
+  "ruff>=0.14.10",
+]
+
+[project.scripts]
+sync-checkpointer = "checkpointer.examples.sync_checkpointer:main"
+async-checkpointer = "checkpointer.examples.async_checkpointer:main"
+
+[project.urls]
+repository = "https://github.com/victor-iyi/checkpointer"
+
+[build-system]
+requires = ["uv_build>=0.8.2,<0.9.0"]
+build-backend = "uv_build"
+
+[tool.uv]
+default-groups = ["dev"]
+
+[tool.mypy]
+files = ["src/"]
+
+[tool.pyright]
+reportArgumentType = "none"
+reportGeneralTypeIssues = "none"
+reportOptionalCall = "none"
+reportOptionalMemberAccess = "none"
+reportUnboundVariable = "none"
+reportUnusedExpression = "none"
+reportAttributeAccessIssue = "none"
+
+[tool.ruff]
+fix = true
+line-length = 120
+show-fixes = true
+
+[tool.ruff.format]
+quote-style = "single"
+skip-magic-trailing-comma = false
+
+[tool.ruff.lint]
+select = [
+  # PyLint
+  "PL",
+  # PyFlakes
+  "F",
+  # Isort
+  "I",
+ ]
