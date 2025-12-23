@@ -15,7 +15,7 @@ from langgraph.checkpoint.base import (
 )
 from langgraph.checkpoint.serde.jsonplus import JsonPlusSerializer
 
-from checkpointer._internal import get_sql_file
+from checkpointer._internal._sql_helpers import get_sql_file
 
 type MetadataInput = dict[str, Any] | None
 type _Version = int | float | str

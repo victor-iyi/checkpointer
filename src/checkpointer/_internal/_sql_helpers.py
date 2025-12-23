@@ -1,7 +1,7 @@
 from functools import lru_cache
 from pathlib import Path
 
-from checkpointer._internal import SQL_DIR
+from checkpointer._internal._constants import SQL_DIR
 
 
 @lru_cache
