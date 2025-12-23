@@ -1,3 +1,8 @@
+"""SQL file loading utilities.
+
+Provides cached loading of SQL query files from the package's SQL directory.
+"""
+
 from functools import lru_cache
 from pathlib import Path
 

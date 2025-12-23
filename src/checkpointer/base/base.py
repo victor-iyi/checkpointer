@@ -1,3 +1,9 @@
+"""Base checkpoint saver implementation.
+
+Provides the `BaseSaver` abstract class that implements common checkpoint
+serialization, deserialization, and SQL query generation logic.
+"""
+
 # mypy: disable-error-code="empty-body"
 import json
 import random
@@ -18,7 +24,10 @@ from langgraph.checkpoint.serde.jsonplus import JsonPlusSerializer
 from checkpointer._internal._sql_helpers import get_sql_file
 
 type MetadataInput = dict[str, Any] | None
+"""Optional metadata dictionary for checkpoint filtering in search operations."""
+
 type _Version = int | float | str
+"""Version identifier type supporting integer, float, or string representations."""
 
 
 class BaseSaver(BaseCheckpointSaver):  # pylint: disable=abstract-method
@@ -169,7 +178,6 @@ class BaseSaver(BaseCheckpointSaver):  # pylint: disable=abstract-method
         if config and 'configurable' in config:
             wheres.append('thread_id = %s ')
             param_values.append(config['configurable']['thread_id'])
-            checkpoint_ns = config['configurable'].get('checkpoint_ns')
             if checkpoint_ns := config['configurable'].get('checkpoint_ns'):
                 wheres.append('checkpoint_ns = %s')
                 param_values.append(checkpoint_ns)

@@ -1,3 +1,8 @@
+"""Package-level path constants.
+
+Defines directory paths used throughout the `checkpointer` package.
+"""
+
 from pathlib import Path
 from typing import Final
 

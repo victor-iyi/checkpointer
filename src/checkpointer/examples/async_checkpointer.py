@@ -1,3 +1,9 @@
+"""Asynchronous checkpointer example.
+
+Demonstrates usage of the asynchronous `AsyncCheckpointSaver` class.
+"""
+
+
 async def amain() -> None:
     """Entry point for async-checkpointer package."""
     print('Hello from async-checkpointer!')
