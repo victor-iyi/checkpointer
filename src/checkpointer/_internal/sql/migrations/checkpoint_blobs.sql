@@ -1,4 +1,4 @@
--- Checkpoint blobs table.
+-- Migration 3: Checkpoint Blobs table.
 CREATE OR REPLACE TABLE {{DB_NAME}}.{{SCHEMA_NAME}}.LANGGRAPH_CHECKPOINT_BLOBS (
   thread_id STRING NOT NULL,
   checkpoint_ns STRING NOT NULL DEFAULT '',

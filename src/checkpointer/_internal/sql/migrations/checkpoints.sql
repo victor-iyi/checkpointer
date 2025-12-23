@@ -1,4 +1,4 @@
--- Checkpoints table.
+-- Migration 2: Checkpoints table.
 CREATE OR REPLACE TABLE {{DB_NAME}}.{{SCHEMA_NAME}}.LANGGRAPH_CHECKPOINTS (
   thread_id STRING NOT NULL,
   checkpoint_ns STRING NOT NULL DEFAULT '',
